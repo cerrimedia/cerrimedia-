@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cerri Media — Creative Production Company · South Florida</title>
+<meta name="description" content="Cerri Media is a creative production company based in South Florida. Photography, video production, social media content and event coverage for brands, businesses, and influencers.">
+<meta property="og:title" content="Cerri Media — Creative Production Company">
+<meta property="og:description" content="Photography, video, social media content and event coverage. South Florida.">
+<meta property="og:image" content="https://funilpro.site/wp-content/uploads/2026/06/HERO-2-FINAL.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#141414">
+
+<!-- FONTS -->
+<link href="https://fonts.cdnfonts.com/css/royale-couture-script" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Dancing+Script:wght@700&family=Barlow:wght@600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   RESET GLOBAL
+═══════════════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+::selection { background: #91C8F5; color: #141414; }
+
+body {
+  background: #fff;
+  color: #141414;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'Helvena';
+  src: url('Helvena_Variable.woff2') format('woff2'),
+       url('Helvena_Variable.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 1 — NAVBAR
+═══════════════════════════════════════════════ */
+.cm-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 9999;
+  padding: 0 40px;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  box-sizing: border-box;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+.cm-nav.cm-scrolled {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+.cm-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+.cm-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+.cm-logo:hover { opacity: 0.75; }
+.cm-logo img { height: 38px; width: auto; display: block; }
+.cm-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0; padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.cm-links li { list-style: none; }
+.cm-links a {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #444444;
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 8px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 11px;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.cm-links a:hover { color: #141414; background: rgba(0,0,0,0.05); }
+.cm-cta {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #2F7FBF;
+  padding: 10px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cm-cta:hover {
+  background: #2570aa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(47,127,191,0.4);
+}
+.cm-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.cm-burger span {
+  width: 24px; height: 2px;
+  background: #141414;
+  border-radius: 2px;
+  display: block;
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.28,0.11,0.32,1),
+              opacity 0.3s ease, background 0.3s ease;
+}
+.cm-burger.cm-open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); background: #ffffff; }
+.cm-burger.cm-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.cm-burger.cm-open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); background: #ffffff; }
+
+.cm-fullscreen {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9998;
+  background: #141414;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s cubic-bezier(0.28,0.11,0.32,1), visibility 0.45s;
+  box-sizing: border-box;
+}
+.cm-fullscreen.cm-open { opacity: 1; visibility: visible; pointer-events: auto; }
+.cm-fs-logo { position: absolute; top: 20px; left: 40px; display: flex; align-items: center; }
+.cm-fs-logo img { height: 52px; width: auto; display: block; opacity: 0.9; }
+.cm-fs-close {
+  position: absolute; top: 16px; right: 24px;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-sizing: border-box;
+  opacity: 0; transform: scale(0.8);
+  transition: opacity 0.4s ease 0.2s, transform 0.4s cubic-bezier(0.28,0.11,0.32,1) 0.2s,
+              background 0.25s ease, border-color 0.25s ease;
+}
+.cm-fullscreen.cm-open .cm-fs-close { opacity: 1; transform: scale(1); }
+.cm-fs-close:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.5); }
+.cm-fs-close svg { width: 18px; height: 18px; display: block; }
+.cm-fs-links {
+  list-style: none; margin: 0; padding: 0;
+  text-align: center; display: flex; flex-direction: column; gap: 4px;
+}
+.cm-fs-links li { overflow: hidden; }
+.cm-fs-links a {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(38px, 9vw, 70px);
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  display: inline-block;
+  opacity: 0; transform: translateY(36px);
+  transition: color 0.25s ease,
+              opacity 0.5s cubic-bezier(0.28,0.11,0.32,1),
+              transform 0.5s cubic-bezier(0.28,0.11,0.32,1);
+}
+.cm-fs-links a:hover { color: #91C8F5; }
+.cm-fullscreen.cm-open .cm-fs-links a { opacity: 1; transform: translateY(0); }
+.cm-fullscreen.cm-open .cm-fs-links li:nth-child(1) a { transition-delay: 0.08s; }
+.cm-fullscreen.cm-open .cm-fs-links li:nth-child(2) a { transition-delay: 0.15s; }
+.cm-fullscreen.cm-open .cm-fs-links li:nth-child(3) a { transition-delay: 0.22s; }
+.cm-fullscreen.cm-open .cm-fs-links li:nth-child(4) a { transition-delay: 0.29s; }
+.cm-fullscreen:not(.cm-open) .cm-fs-links a { transition-delay: 0s !important; }
+.cm-fs-cta {
+  margin-top: 40px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px; font-weight: 600;
+  color: #ffffff; background: #2F7FBF;
+  padding: 16px 48px; border-radius: 100px;
+  text-decoration: none; letter-spacing: -0.01em;
+  display: inline-block; box-sizing: border-box;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity 0.5s ease 0.34s,
+              transform 0.5s cubic-bezier(0.28,0.11,0.32,1) 0.34s,
+              background 0.3s ease;
+}
+.cm-fullscreen.cm-open .cm-fs-cta { opacity: 1; transform: translateY(0); }
+.cm-fullscreen:not(.cm-open) .cm-fs-cta { transition-delay: 0s; }
+.cm-fs-cta:hover { background: #2570aa; }
+.cm-fs-bottom {
+  position: absolute; bottom: 28px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+  opacity: 0; transition: opacity 0.5s ease 0.44s;
+}
+.cm-fullscreen.cm-open .cm-fs-bottom { opacity: 1; }
+.cm-fullscreen:not(.cm-open) .cm-fs-bottom { transition-delay: 0s; }
+
+@media (max-width: 1024px) {
+  .cm-links { display: none !important; }
+  .cm-cta   { display: none !important; }
+  .cm-burger { display: flex !important; }
+}
+@media (max-width: 768px) {
+  .cm-nav { padding: 0 24px; }
+  .cm-fs-logo { left: 24px; top: 16px; }
+  .cm-fs-close { right: 16px; }
+}
+@media (max-width: 480px) {
+  .cm-nav { padding: 0 16px; }
+  .cm-logo img { height: 42px; }
+  .cm-fs-logo { left: 16px; }
+  .cm-fs-logo img { height: 42px; }
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 2 — HERO IMAGE
+═══════════════════════════════════════════════ */
+.hero-full {
+  width: 100%;
+  margin: 0 !important;
+  display: block;
+  line-height: 0;
+  font-size: 0;
+}
+.hero-full img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none;
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO CURSOR TRAIL
+═══════════════════════════════════════════════ */
+.hero-cursor-zone {
+  position: relative;
+  cursor: crosshair;
+}
+
+
+
+/* ═══════════════════════════════════════════════
+   TICKERS UNIFICADOS
+═══════════════════════════════════════════════ */
+.tk {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.tk-track {
+  display: inline-flex;
+  align-items: center;
+  animation: tk-scroll 22s linear infinite;
+  will-change: transform;
+}
+.tk-track img {
+  height: 26px;
+  width: auto;
+  display: inline-block;
+  margin: 0 32px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+@keyframes tk-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Variantes de cor */
+.tk-blue  { background: #8eb4e3; }
+.tk-blue  .tk-track img { filter: brightness(0); }
+
+.tk-white { background: #ffffff; }
+.tk-white .tk-track img { filter: brightness(0); }
+
+.tk-gray  { background: #f5f5f7; }
+.tk-gray  .tk-track img { filter: brightness(0); }
+
+.tk-dark  { background: #181818; }
+.tk-dark  .tk-track img { filter: brightness(0) invert(1); }
+
+@media (max-width: 768px) {
+  .tk { padding: 12px 0; }
+  .tk-track img { height: 18px; margin: 0 20px; }
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 4 — HERO WORK TEXT
+═══════════════════════════════════════════════ */
+@keyframes blurfade {
+  from { opacity: 0; filter: blur(12px); transform: translateY(10px); }
+  to   { opacity: 1; filter: blur(0px);  transform: translateY(0);    }
+}
+.hero-work {
+  padding: 80px 40px 100px;
+  text-align: center;
+  font-family: 'Helvena', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.hero-work-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #888; margin-bottom: 40px;
+  opacity: 0;
+  animation: blurfade 0.8s cubic-bezier(0.28,0.11,0.32,1) 0.1s forwards;
+}
+.hero-work-title {
+  font-size: clamp(56px, 10vw, 130px);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  color: #141414;
+  margin-bottom: 32px;
+}
+.hero-work-title .sc {
+  font-family: 'Royale Couture Script', cursive;
+  font-weight: 400; font-style: normal;
+  font-size: 0.75em; display: inline;
+  letter-spacing: -0.01em;
+  opacity: 0;
+  animation: blurfade 0.9s cubic-bezier(0.28,0.11,0.32,1) 0.25s forwards;
+}
+.hero-work-title .bk {
+  font-family: 'Helvena', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900; display: inline;
+  opacity: 0;
+  animation: blurfade 0.9s cubic-bezier(0.28,0.11,0.32,1) 0.35s forwards;
+}
+.hero-work-title .bk2 {
+  font-family: 'Helvena', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 900; display: inline;
+  opacity: 0;
+  animation: blurfade 0.9s cubic-bezier(0.28,0.11,0.32,1) 0.45s forwards;
+}
+.hero-work-sub {
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: #666; line-height: 1.6;
+  letter-spacing: -0.005em; margin-bottom: 32px;
+  opacity: 0;
+  animation: blurfade 0.9s cubic-bezier(0.28,0.11,0.32,1) 0.6s forwards;
+}
+.hero-work-location {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600; color: #666;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 8px 18px;
+  border-radius: 100px;
+  opacity: 0;
+  animation: blurfade 0.9s cubic-bezier(0.28,0.11,0.32,1) 0.75s forwards;
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 6 — PORTFOLIO MASONRY
+═══════════════════════════════════════════════ */
+.portfolio {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  padding: 96px 0 112px;
+  background: #f5f5f7;
+  box-sizing: border-box;
+}
+.masonry-grid {
+  columns: 2;
+  column-gap: 14px;
+  width: 100%;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 14px;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  background: #c9e3f7;
+}
+.masonry-item img {
+  width: 100%; height: auto; display: block;
+  transition: transform 0.6s cubic-bezier(0.28,0.11,0.32,1);
+}
+.masonry-item:hover img { transform: scale(1.05); }
+.masonry-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.28,0.11,0.32,1);
+  z-index: 1;
+}
+.masonry-item:hover::after { opacity: 1; }
+.masonry-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 26px;
+  color: #ffffff; z-index: 2;
+  transform: translateY(12px); opacity: 0;
+  transition: all 0.5s cubic-bezier(0.28,0.11,0.32,1);
+}
+.masonry-item:hover .masonry-overlay { transform: translateY(0); opacity: 1; }
+.masonry-overlay h4 {
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 18px; font-weight: 700;
+  margin: 0 0 6px; letter-spacing: -0.02em;
+}
+.masonry-overlay p { font-size: 12px; opacity: 0.75; margin: 0; font-weight: 400; letter-spacing: 0.02em; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════════════
+   BLOCO 7 — TICKER BRANCO
+═══════════════════════════════════════════════ */
+.ticker-wrap-white {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  background: #181818;
+  padding: 14px 0;
+  overflow: hidden;
+  line-height: 0; font-size: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.ticker-wrap-white .ticker-track-white {
+  display: inline-flex;
+  align-items: center;
+  animation: ticker-scroll-white 18s linear infinite;
+  will-change: transform;
+}
+.ticker-wrap-white .ticker-track-white img {
+  height: 28px; width: auto;
+  display: inline-block;
+  margin: 0 32px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+@keyframes ticker-scroll-white {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 8 — ABOUT (DARK)
+═══════════════════════════════════════════════ */
+.about-section {
+  background: #181818;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.sc { font-family: 'Royale Couture Script', cursive; font-weight: 400; font-style: normal; }
+.bk { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 800; font-style: normal; }
+
+.about-hero {
+  text-align: center;
+  padding: 96px 40px 56px;
+}
+.about-hero h1 {
+  font-size: clamp(36px, 5.5vw, 72px);
+  line-height: 0.93; letter-spacing: -0.035em;
+  color: #fff; margin-bottom: 24px;
+}
+.about-hero h1 .sc { font-size: 1.0em; display: inline-block; }
+.about-hero p {
+  font-size: clamp(14px, 1.4vw, 16px);
+  color: rgba(255,255,255,0.55);
+  line-height: 1.7; max-width: 520px;
+  margin: 0 auto; letter-spacing: -0.01em;
+}
+.logo-block {
+  display: flex; justify-content: center; align-items: center;
+  padding: 8px 40px 96px;
+}
+.logo-img {
+  width: 100%; max-width: 600px; height: auto;
+  filter: drop-shadow(0 0 100px rgba(220,220,220,0.14)) drop-shadow(0 30px 70px rgba(0,0,0,0.8));
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.about-services {
+  padding: 0 40px 96px;
+  text-align: center;
+}
+.about-services h2 {
+  font-size: clamp(42px, 6vw, 76px);
+  letter-spacing: -0.03em; line-height: 1.05;
+  color: #fff; margin-bottom: 14px;
+}
+.about-services h2 .sc {
+  font-size: 1.2em;
+  display: inline-block;
+  letter-spacing: -0.01em;
+}
+.about-services p {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: rgba(255,255,255,0.5); line-height: 1.65;
+  max-width: 380px; margin: 0 auto; letter-spacing: -0.01em;
+}
+.fade { opacity: 0; transform: translateY(28px); transition: opacity 0.85s cubic-bezier(0.28,0.11,0.32,1), transform 0.85s cubic-bezier(0.28,0.11,0.32,1); }
+.fade.on { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.12s; }
+.d2 { transition-delay: 0.22s; }
+
+/* ═══════════════════════════════════════════════
+   BLOCO 9 — SERVICES CARDS
+═══════════════════════════════════════════════ */
+.svc-wrap {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #141414;
+  background: #fff;
+}
+.svc-stack {
+  padding: 20px 64px 160px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.svc-card {
+  position: sticky;
+  border-radius: 24px;
+  background: #ffffff;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transform-origin: top center;
+  will-change: transform;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.05), 0 12px 40px rgba(0,0,0,0.04);
+  transition: box-shadow 0.4s cubic-bezier(0.28,0.11,0.32,1);
+}
+.svc-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: linear-gradient(180deg, #91C8F5 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 24px 0 0 24px;
+}
+.svc-card:hover::before { opacity: 1; }
+.svc-card:hover {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.1), 0 32px 80px rgba(0,0,0,0.08);
+}
+.svc-card:nth-child(1) { top: 100px; z-index: 1; }
+.svc-card:nth-child(2) { top: 116px; z-index: 2; }
+.svc-card:nth-child(3) { top: 132px; z-index: 3; }
+.svc-card:nth-child(4) { top: 148px; z-index: 4; }
+.svc-card:nth-child(5) { top: 164px; z-index: 5; }
+.svc-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 300px;
+}
+.svc-left {
+  padding: 52px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border-right: 1px solid rgba(0,0,0,0.06);
+}
+.svc-right {
+  padding: 52px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.svc-num {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #bbb; margin-bottom: 20px;
+}
+.svc-title {
+  font-size: clamp(30px, 3.6vw, 50px);
+  line-height: 1.0; letter-spacing: -0.03em; color: #141414;
+}
+.svc-title .sc {
+  font-family: 'Royale Couture Script', cursive;
+  font-weight: 400; font-style: normal;
+  font-size: 1.02em; display: inline-block;
+}
+.svc-title .bk {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+}
+.svc-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px;
+  background: rgba(0,0,0,0.06); border-radius: 100px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: #6b6b6b; width: fit-content; margin-top: 28px;
+}
+.svc-dot { width: 5px; height: 5px; border-radius: 50%; background: #91C8F5; flex-shrink: 0; }
+.svc-body {
+  font-size: clamp(14px, 1.4vw, 15px);
+  color: #6b6b6b; line-height: 1.72;
+  letter-spacing: -0.01em; margin-bottom: 28px;
+}
+.svc-body:last-child { margin-bottom: 0; }
+.svc-inc-label {
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: #9a9a9a; margin-bottom: 14px;
+}
+.svc-inc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.svc-inc-list li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: #141414; line-height: 1.5; letter-spacing: -0.01em;
+}
+.svc-inc-list li::before {
+  content: '';
+  width: 4px; height: 4px; border-radius: 50%;
+  background: #91C8F5; flex-shrink: 0; margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 10 — ROOTED IN INTENTION
+═══════════════════════════════════════════════ */
+.rit-section {
+  background: #141414;
+  padding: 120px 64px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Helvena', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.rit-grid {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 72px; align-items: center;
+}
+.rit-image-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+.rit-image-wrap img {
+  width: 100%; height: auto; display: block;
+  filter: drop-shadow(0 32px 72px rgba(0,0,0,0.55));
+  animation: img-float 8s ease-in-out infinite;
+}
+@keyframes img-float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+.rit-copy { display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.rit-eyebrow {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #91C8F5;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.rit-title {
+  font-size: clamp(36px, 4.5vw, 60px);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -0.035em; color: #ffffff;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+.rit-title .sc {
+  font-family: 'Royale Couture Script', cursive;
+  font-weight: 400; font-size: 1.05em;
+  display: inline; letter-spacing: -0.01em;
+}
+.rit-divider {
+  width: 32px; height: 1.5px;
+  background: #91C8F5; border-radius: 2px;
+  opacity: 0; transform: scaleX(0); transform-origin: left;
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+.rit-body { display: flex; flex-direction: column; gap: 18px; }
+.rit-body p {
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.72; letter-spacing: -0.012em;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.rit-body p:nth-child(1) { transition-delay: 0.25s; }
+.rit-body p:nth-child(2) { transition-delay: 0.35s; }
+.rit-section.rit-visible .rit-eyebrow,
+.rit-section.rit-visible .rit-title,
+.rit-section.rit-visible .rit-body p { opacity: 1; transform: translateY(0); }
+.rit-section.rit-visible .rit-divider { opacity: 1; transform: scaleX(1); }
+
+/* ═══════════════════════════════════════════════
+   BLOCO 11 — TICKER TEXT (CONTENT creation)
+═══════════════════════════════════════════════ */
+.ticker-text-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  background: #181818;
+  padding: 28px 0;
+  overflow: hidden;
+  line-height: 0; font-size: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.ticker-text-track {
+  display: inline-flex;
+  align-items: center;
+  animation: ticker-text-scroll 80s linear infinite;
+  will-change: transform;
+}
+.ticker-text-item { display: inline-flex; align-items: center; gap: 0; padding: 0 10px; }
+.ticker-text-item .word-content {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600; font-size: 80px;
+  color: #ffffff; text-transform: uppercase;
+  letter-spacing: 0.12em; line-height: 1;
+}
+.ticker-text-item .word-creation {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700; font-size: 110px;
+  color: #ffffff; line-height: 1; margin-left: 14px;
+}
+.ticker-separator { display: inline-block; width: 80px; }
+@keyframes ticker-text-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════
+   BLOCO 12 — HERO 3 PANELS
+═══════════════════════════════════════════════ */
+.hero3-wrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  line-height: 0; font-size: 0;
+}
+.hero3-panel {
+  flex: 1; overflow: hidden; position: relative;
+  transition: flex 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  cursor: pointer;
+}
+.hero3-wrap:hover .hero3-panel { flex: 0.6; }
+.hero3-wrap:hover .hero3-panel:hover { flex: 1.8; }
+.hero3-panel img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.18, 1);
+  filter: brightness(0.92);
+}
+.hero3-panel:hover img { transform: scale(1.04); filter: brightness(1); }
+.hero3-panel + .hero3-panel { border-left: 2px solid rgba(255,255,255,0.15); }
+.hero3-panel::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.25);
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.hero3-wrap:hover .hero3-panel::after { opacity: 1; }
+.hero3-wrap:hover .hero3-panel:hover::after { opacity: 0; }
+
+/* ═══════════════════════════════════════════════
+   BLOCO 13 — FOOTER
+═══════════════════════════════════════════════ */
+.cm-footer {
+  background: #111110;
+  padding: 80px 64px 40px;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative; overflow: hidden;
+  width: 100%; box-sizing: border-box;
+}
+.cm-footer::before {
+  content: '';
+  position: absolute; top: 0; left: 64px; right: 64px;
+  height: 1px; background: rgba(255,255,255,0.1);
+}
+.cm-footer::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  pointer-events: none; opacity: 0.4; z-index: 0;
+}
+.cm-footer-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+.cm-footer-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 40px; padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.cm-footer-logo img { width: clamp(120px, 14vw, 190px); height: auto; display: block; opacity: 0.95; }
+.cm-footer-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: clamp(20px, 2.4vw, 30px);
+  color: rgba(255,255,255,0.38);
+  text-align: right; line-height: 1.25;
+  letter-spacing: -0.01em; max-width: 480px;
+}
+.cm-footer-tagline em { font-style: normal; color: rgba(255,255,255,0.7); }
+.cm-footer-mid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px; padding: 48px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.cm-footer-col-label {
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.28); margin-bottom: 16px;
+}
+.cm-footer-col-value {
+  font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7; letter-spacing: -0.01em;
+}
+.cm-footer-col-value a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.3s ease; }
+.cm-footer-col-value a:hover { color: #fff; }
+.cm-insta-link {
+  display: inline-flex; align-items: center; gap: 9px;
+  color: rgba(255,255,255,0.65); text-decoration: none;
+  font-size: 14px; font-weight: 300; transition: color 0.3s ease;
+}
+.cm-insta-link:hover { color: #fff; }
+.cm-insta-link svg {
+  width: 16px; height: 16px;
+  stroke: currentColor; fill: none;
+  flex-shrink: 0; transition: color 0.3s ease;
+}
+.cm-footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 32px; gap: 20px;
+}
+.cm-copyright { font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.22); letter-spacing: 0.03em; }
+.cm-footer-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.18); flex-shrink: 0; }
+
+/* ═══════════════════════════════════════════════
+   HERO3 SLIDESHOW
+═══════════════════════════════════════════════ */
+.hero3-panel {
+  position: relative;
+}
+.hero3-panel .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.8s ease-in-out;
+  display: block;
+}
+.hero3-panel .slide.active {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════
+   FOUNDERS SECTION
+═══════════════════════════════════════════════ */
+.founders-section {
+  background: #ffffff;
+  padding: 100px 64px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.founders-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.founders-img {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 18px;
+}
+.founders-copy { display: flex; flex-direction: column; gap: 20px; }
+.founders-eyebrow {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #91C8F5;
+}
+.founders-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900; line-height: 1.0;
+  letter-spacing: -0.03em; color: #141414;
+}
+.founders-title .sc {
+  font-family: 'Royale Couture Script', cursive;
+  font-weight: 400; font-size: 1.05em; display: inline;
+}
+.founders-divider {
+  width: 32px; height: 1.5px;
+  background: #141414; border-radius: 2px;
+}
+.founders-body {
+  font-size: 14px; line-height: 1.78;
+  color: #555; letter-spacing: -0.01em;
+  max-width: 480px;
+}
+.founders-body p + p { margin-top: 14px; }
+
+/* ═══════════════════════════════════════════════
+   SUBCATEGORIAS (EVENTS + CONTENT)
+═══════════════════════════════════════════════ */
+.sub-section {
+  background: #f7f7f9;
+  padding: 80px 64px 100px;
+  box-sizing: border-box;
+}
+.sub-inner { max-width: 1200px; margin: 0 auto; }
+.sub-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: #888; margin-bottom: 12px;
+}
+.sub-title {
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 900; letter-spacing: -0.03em;
+  color: #141414; margin-bottom: 48px;
+  line-height: 1.0;
+}
+.sub-title .sc {
+  font-family: 'Royale Couture Script', cursive;
+  font-weight: 400; font-size: 1.05em; display: inline;
+}
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.sub-card {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(24px);
+}
+.sub-card.in-view {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.35s ease;
+}
+.sub-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+}
+.sub-card-thumb {
+  width: 100%; height: 180px;
+  overflow: hidden;
+  display: block;
+}
+.sub-card-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.sub-card:hover .sub-card-thumb img {
+  transform: scale(1.05);
+}
+.sub-card-info { padding: 18px 20px; }
+.sub-card-name {
+  font-size: 13px; font-weight: 700;
+  color: #141414; letter-spacing: -0.01em;
+  margin-bottom: 6px;
+}
+.sub-card-link {
+  font-size: 10px; color: #91C8F5; letter-spacing: 0.08em;
+  font-weight: 600; letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 960px) {
+  .founders-inner { grid-template-columns: 1fr; gap: 40px; }
+  .founders-section { padding: 72px 32px; }
+  .founders-img { max-width: 280px; margin: 0 auto; }
+  .sub-grid { grid-template-columns: repeat(2, 1fr); }
+  .sub-section { padding: 60px 32px 80px; }
+}
+@media (max-width: 540px) {
+  .sub-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .sub-section { padding: 48px 20px 64px; }
+  .founders-section { padding: 56px 20px; }
+}
+
+/* ═══════════════════════════════════════════════
+   GALLERY MODAL
+═══════════════════════════════════════════════ */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s;
+}
+.gallery-modal.gm-open {
+  opacity: 1;
+  visibility: visible;
+}
+.gm-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.gm-box {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(40px);
+  transition: transform 0.4s cubic-bezier(0.28,0.11,0.32,1);
+}
+.gallery-modal.gm-open .gm-box {
+  transform: translateY(0);
+}
+.gm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  flex-shrink: 0;
+  background: #fff;
+}
+.gm-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #141414;
+}
+.gm-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.15);
+  background: none;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+.gm-close:hover { background: rgba(0,0,0,0.06); }
+.gm-close svg { width: 14px; height: 14px; display: block; }
+.gm-iframe-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.gm-iframe-wrap iframe {
+  width: 100%; height: 100%;
+  border: none;
+  display: block;
+}
+.gm-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f7;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.gm-loading.gm-loaded { opacity: 0; }
+
+
+/* ═══════════════════════════════════════════════
+   PORTFOLIO PINTEREST GALLERY MODAL
+═══════════════════════════════════════════════ */
+.pgm-overlay {
+  position: fixed; inset: 0; z-index: 99998;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .35s ease, visibility .35s;
+  display: flex; flex-direction: column;
+}
+.pgm-overlay.pgm-open { opacity: 1; visibility: visible; }
+
+.pgm-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 32px; flex-shrink: 0;
+}
+.pgm-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+.pgm-close {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background .2s ease;
+}
+.pgm-close:hover { background: rgba(255,255,255,0.2); }
+.pgm-close svg { width: 16px; height: 16px; display: block; }
+
+.pgm-grid {
+  flex: 1; overflow-y: auto;
+  padding: 8px 24px 32px;
+  columns: 4; column-gap: 12px;
+}
+.pgm-grid::-webkit-scrollbar { width: 6px; }
+.pgm-grid::-webkit-scrollbar-track { background: transparent; }
+.pgm-grid::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+
+.pgm-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: zoom-in;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .5s ease, transform .5s ease, box-shadow .3s ease;
+}
+.pgm-item.pgm-visible { opacity: 1; transform: translateY(0); }
+.pgm-item:hover { box-shadow: 0 8px 32px rgba(0,0,0,.6); }
+.pgm-item img {
+  width: 100%; height: auto; display: block;
+  transition: transform .5s ease;
+}
+.pgm-item:hover img { transform: scale(1.03); }
+
+/* lightbox single */
+.pgm-lightbox {
+  position: fixed; inset: 0; z-index: 99999;
+  background: rgba(0,0,0,0.95);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s ease, visibility .25s;
+}
+.pgm-lightbox.pgm-lb-open { opacity: 1; visibility: visible; }
+.pgm-lightbox img {
+  max-width: 90vw; max-height: 90vh;
+  object-fit: contain; border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.8);
+}
+.pgm-lb-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.pgm-lb-close svg { width: 16px; height: 16px; display: block; }
+
+@media (max-width: 900px) { .pgm-grid { columns: 3; } }
+@media (max-width: 600px) { .pgm-grid { columns: 2; padding: 8px 12px 24px; } }
+
+/* ── FOUNDERS dentro do RIT ── */
+.rit-founders-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.rit-founders-img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 16px;
+  display: block;
+}
+.rit-founders-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .rit-founders-grid { grid-template-columns: 1fr; gap: 40px; }
+  .rit-founders-img { max-width: 280px; margin: 0 auto; }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE GLOBAL
+═══════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .masonry-grid { columns: 2; }
+}
+@media (max-width: 900px) {
+  .svc-stack { padding: 0 24px 120px; }
+  .svc-inner { grid-template-columns: 1fr; }
+  .svc-left  { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 40px 32px; }
+  .svc-right { padding: 32px 32px 40px; }
+  .svc-card:nth-child(1) { top: 72px; }
+  .svc-card:nth-child(2) { top: 80px; }
+  .svc-card:nth-child(3) { top: 88px; }
+  .svc-card:nth-child(4) { top: 96px; }
+  .svc-card:nth-child(5) { top: 104px; }
+  .rit-section { padding: 80px 32px; }
+  .rit-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 860px) {
+  .about-hero { padding: 64px 24px 0; }
+  .logo-block { padding: 52px 24px 68px; }
+  .about-services { padding: 0 24px 80px; }
+  .cm-footer { padding: 60px 32px 36px; }
+  .cm-footer::before { left: 32px; right: 32px; }
+  .cm-footer-top { flex-direction: column; gap: 28px; padding-bottom: 40px; }
+  .cm-footer-tagline { text-align: left; max-width: 100%; }
+  .cm-footer-mid { grid-template-columns: 1fr 1fr; gap: 32px; padding: 36px 0; }
+}
+@media (max-width: 768px) {
+  .hero-work { padding: 56px 24px 72px; }
+  .hero-work-label { font-size: 10px; letter-spacing: 0.18em; margin-bottom: 28px; }
+  .hero-work-title { font-size: clamp(48px, 13vw, 72px); line-height: 0.98; letter-spacing: -0.035em; margin-bottom: 24px; }
+  .hero-work-title br { display: none; }
+  .hero-work-sub { font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+  .hero-work-sub br { display: none; }
+  .hero-work-location { font-size: 13px; }
+  .ticker-wrap { padding: 10px 0; }
+  .ticker-track img { height: 18px; margin: 0 12px; }
+  .ticker-wrap-dark { padding: 10px 0; }
+  .ticker-wrap-dark .ticker-track-dark img { height: 18px; margin: 0 12px; }
+  .ticker-wrap-white { padding: 10px 0; }
+  .ticker-wrap-white .ticker-track-white img { height: 18px; margin: 0 12px; }
+  .ticker-text-wrap { padding: 16px 0; }
+  .ticker-text-item .word-content { font-size: 42px; }
+  .ticker-text-item .word-creation { font-size: 60px; }
+  .hero3-wrap { flex-direction: column; height: auto; }
+  .hero3-panel { flex: none !important; width: 100%; height: 40vh; transition: none; }
+  .hero3-wrap:hover .hero3-panel { flex: none !important; }
+  .hero3-panel::after { display: none; }
+  .hero3-panel + .hero3-panel { border-left: none; border-top: 2px solid rgba(255,255,255,0.15); }
+}
+@media (max-width: 600px) {
+  .portfolio { padding: 50px 0 70px; }
+  .masonry-grid { columns: 2; column-gap: 8px; padding: 0 8px; }
+  .masonry-item { margin-bottom: 8px; border-radius: 10px; }
+}
+@media (max-width: 560px) {
+  .logo-img { max-width: 300px; }
+  .svc-left, .svc-right { padding: 28px 24px; }
+  .svc-card { border-radius: 18px; }
+  .rit-section { padding: 64px 20px; }
+  .rit-title { font-size: clamp(32px, 10vw, 48px); }
+}
+@media (max-width: 540px) {
+  .cm-footer { padding: 52px 20px 32px; }
+  .cm-footer::before { left: 20px; right: 20px; }
+  .cm-footer-mid { grid-template-columns: 1fr; gap: 28px; }
+  .cm-footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .cm-footer-dot { display: none; }
+}
+@media (max-width: 480px) {
+  .hero-work { padding: 48px 20px 64px; }
+  .hero-work-title { font-size: clamp(42px, 14vw, 64px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav class="cm-nav" id="cmNav">
+  <div class="cm-nav-inner">
+    <a href="#home" class="cm-logo">
+      <img src="https://funilpro.site/wp-content/uploads/2026/05/LOGO-6-PRETA.png" alt="Cerri Media">
+    </a>
+    <ul class="cm-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+    </ul>
+    <a href="https://wa.me/message/VOCVD6UA5CPYB1" target="_blank" rel="noopener" class="cm-cta">Get in Touch</a>
+    <button class="cm-burger" id="cmBurger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="cm-fullscreen" id="cmFullscreen" aria-hidden="true">
+  <div class="cm-fs-logo">
+    <img src="https://funilpro.site/wp-content/uploads/2026/05/LOGO-6-BRANCA.png" alt="Cerri Media">
+  </div>
+  <button class="cm-fs-close" id="cmFsClose" aria-label="Fechar menu">
+    <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 2L16 16M16 2L2 16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+  <ul class="cm-fs-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#services">Services</a></li>
+  </ul>
+  <a href="https://wa.me/message/VOCVD6UA5CPYB1" target="_blank" rel="noopener" class="cm-fs-cta">Get in Touch</a>
+  <span class="cm-fs-bottom">South Florida · Working Everywhere</span>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO IMAGE + CURSOR TRAIL
+═══════════════════════════════════════════ -->
+<div id="home" class="hero-full hero-cursor-zone" style="padding-top: 68px; position: relative;">
+  <img src="https://funilpro.site/wp-content/uploads/2026/06/HERO-2-FINAL.png" alt="Hero" loading="eager" fetchpriority="high"/>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TICKER AZUL
+═══════════════════════════════════════════ -->
+<div class="tk tk-blue"><div class="tk-track">    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════
+     HERO WORK TEXT
+═══════════════════════════════════════════ -->
+<div id="work" class="hero-work">
+  <p class="hero-work-label">Our Work</p>
+  <h1 class="hero-work-title">
+    <span class="sc">Content,</span> <span class="bk">done</span><br>
+    <span class="bk2">with purpose.</span>
+  </h1>
+  <p class="hero-work-sub">
+    Access Our Behind The Scenes
+  </p>
+  <p class="hero-work-location">Based in South Florida. Working everywhere.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TICKER ESCURO
+═══════════════════════════════════════════ -->
+<div class="tk tk-white"><div class="tk-track">    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════
+     PORTFOLIO MASONRY
+═══════════════════════════════════════════ -->
+<section id="work-gallery" class="portfolio">
+  <div class="masonry-grid">
+    <div class="masonry-item" onclick="openPortfolioGallery('Brand Campaign')" style="cursor:pointer;">
+      <img src="https://funilpro.site/wp-content/uploads/2026/06/Tezza-0687-scaled.jpg" alt="Brand Campaign">
+      <div class="masonry-overlay"><h4>Brand Campaign</h4><p>Visual storytelling for modern brands</p></div>
+    </div>
+    <div class="masonry-item" onclick="openPortfolioGallery('Lifestyle Shoots')" style="cursor:pointer;">
+      <img src="https://funilpro.site/wp-content/uploads/2026/06/Tezza-4309-scaled.jpg" alt="Lifestyle Shoots">
+      <div class="masonry-overlay"><h4>Lifestyle Shoots</h4><p>Authentic moments, elevated</p></div>
+    </div>
+    <div class="masonry-item" onclick="openPortfolioGallery('Editorial')" style="cursor:pointer;">
+      <img src="https://funilpro.site/wp-content/uploads/2026/06/Tezza-4021-scaled.jpg" alt="Editorial">
+      <div class="masonry-overlay"><h4>Editorial</h4><p>Magazine-grade visual direction</p></div>
+    </div>
+    <div class="masonry-item" onclick="openPortfolioGallery('Event Coverage')" style="cursor:pointer;">
+      <img src="https://funilpro.site/wp-content/uploads/2026/06/IMG_7280-scaled.jpg" alt="Event Coverage">
+      <div class="masonry-overlay"><h4>Event Coverage</h4><p>Capturing moments in real-time</p></div>
+    </div>
+    <div class="masonry-item" onclick="openPortfolioGallery('Content for your business')" style="cursor:pointer;">
+      <img src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-6136-scaled.jpg" alt="Content for your business">
+      <div class="masonry-overlay"><h4>Content for your business</h4><p>Strategic content that converts</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TICKER BRANCO
+═══════════════════════════════════════════ -->
+<div class="tk tk-gray"><div class="tk-track">    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+  </div>
+</div>
+<!-- ═══════════════════════════════════════════
+     ABOUT (DARK)
+═══════════════════════════════════════════ -->
+<div id="about" class="about-section">
+
+  <section class="about-hero">
+    <h1>
+      <span class="sc">We are</span> <span class="bk">a creative<br>production company</span><br>
+      <span class="sc">based in</span> <span class="bk">South Florida.</span>
+    </h1>
+    <p>A team of filmmakers, photographers, editors, and designers turning ideas, personality, and storytelling into strategic content for brands, businesses, and influencers who care about how they show up.</p>
+  </section>
+
+  <section class="about-services fade d2">
+    <h2><span class="sc">Our</span> <span class="bk">Services</span></h2>
+    <p>We offer comprehensive creative solutions tailored to your brand's unique needs and vision.</p>
+  </section>
+
+</div>
+
+<div class="tk tk-dark"><div class="tk-track">    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+  </div>
+</div>
+
+
+
+<!-- ═══════════════════════════════════════════
+     SUBCATEGORIAS — EVENTS
+═══════════════════════════════════════════ -->
+<section class="sub-section">
+  <div class="sub-inner">
+
+    <p class="sub-label">Event Coverage</p>
+    <h2 class="sub-title"><span class="sc">Our</span> Events</h2>
+    <div class="sub-grid">
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/0e4b0593-51ce-4dfa-b775-ab2b5e779e44" data-name="Trousseau" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/06/2900-scaled.jpg" alt="Trousseau"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Trousseau</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/61846aa9-6d2d-4493-9986-5a8439b58b6c" data-name="The Well" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/06/1124-scaled.jpg" alt="The Well"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">The Well</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/29465053" data-name="Arezzo" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/06/IMG_5662-scaled.jpg" alt="Arezzo"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Arezzo</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/28817500" data-name="Happy Aging" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/06/IMG_0275-scaled.jpg" alt="Happy Aging"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Happy Aging</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- CONTENT FOR YOUR BUSINESS -->
+    <p class="sub-label" style="margin-top:64px;">Content for your business</p>
+    <h2 class="sub-title"><span class="sc">By</span> Industry</h2>
+    <div class="sub-grid">
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/d5bd02ff-36b8-4d2c-8d4b-e061b698cb78" data-name="Beauty" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0095-scaled.jpg" alt="Beauty"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Beauty</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/99c2fe2c-bfb2-4e64-9e99-73932db9edcd" data-name="Sport" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-7987.jpg" alt="Sport"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Sport</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/332ec03b-0c26-4889-93e8-ee5ce35ed4ae" data-name="Barber Shop" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-8009-scaled.jpg" alt="Barber Shop"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Barber Shop</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+      <a class="sub-card" href="#" data-gallery="https://cerrimedia.shootproof.com/gallery/29476969" data-name="Law Firm" onclick="openGallery(event,this)">
+        <div class="sub-card-thumb"><img src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-7456-scaled.jpg" alt="Law Firm"></div>
+        <div class="sub-card-info">
+          <div class="sub-card-name">Law Firm</div>
+          <div class="sub-card-link">View Gallery →</div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SERVICES CARDS
+═══════════════════════════════════════════ -->
+<div id="services" class="svc-wrap">
+  <div class="svc-stack">
+
+    <div class="svc-card">
+      <div class="svc-inner">
+        <div class="svc-left">
+          <div>
+            <div class="svc-num">01</div>
+            <h3 class="svc-title"><span class="sc">Monthly</span> <span class="bk">Content &<br>Social Media</span></h3>
+          </div>
+          <div class="svc-tag"><span class="svc-dot"></span>Ongoing Retainer</div>
+        </div>
+        <div class="svc-right">
+          <p class="svc-body">Our ongoing content service is built for brands and businesses that want consistency without losing quality. Think of it as a monthly subscription.</p>
+          <p class="svc-body">We handle content creation and social media management in a structured, hands-on way — from planning and production to editing and delivery. The goal is simple: make sure your brand shows up clearly and consistently.</p>
+          <p class="svc-body">Ideal for brands looking for long-term visual direction and ongoing support.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-inner">
+        <div class="svc-left">
+          <div>
+            <div class="svc-num">02</div>
+            <h3 class="svc-title"><span class="bk">Photo&shy;graphy</span></h3>
+          </div>
+          <div class="svc-tag"><span class="svc-dot"></span>Photo Sessions</div>
+        </div>
+        <div class="svc-right">
+          <p class="svc-body">Clean, intentional photography for brands, campaigns, and events. We focus on composition, details, and storytelling — creating images that feel natural and aligned with your brand's visual identity.</p>
+          <div class="svc-inc-label">Includes</div>
+          <ul class="svc-inc-list">
+            <li>Brand, lifestyle &amp; personal sessions</li>
+            <li>Product photography</li>
+            <li>Event photography</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-inner">
+        <div class="svc-left">
+          <div>
+            <div class="svc-num">03</div>
+            <h3 class="svc-title"><span class="sc">Video</span> <span class="bk">Pro&shy;duction</span></h3>
+          </div>
+          <div class="svc-tag"><span class="svc-dot"></span>Film &amp; Edit</div>
+        </div>
+        <div class="svc-right">
+          <p class="svc-body">Video content designed for social media, campaigns, websites, and digital platforms. From filming to final edit, we focus on rhythm, visuals, and direction — creating videos that feel effortless but well thought out.</p>
+          <div class="svc-inc-label">Includes</div>
+          <ul class="svc-inc-list">
+            <li>Brand and campaign videos</li>
+            <li>Social media content</li>
+            <li>Event highlight videos and more</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-inner">
+        <div class="svc-left">
+          <div>
+            <div class="svc-num">04</div>
+            <h3 class="svc-title"><span class="sc">Event</span> <span class="bk">Content &<br>Coverage</span></h3>
+          </div>
+          <div class="svc-tag"><span class="svc-dot"></span>Same-day Delivery</div>
+        </div>
+        <div class="svc-right">
+          <p class="svc-body">Real-time content creation for events. We capture the moments, details, and atmosphere as they happen — delivering content that allows your event to live beyond the day itself.</p>
+          <p class="svc-body">Same-day or 24–48 hour delivery options available for time-sensitive projects.</p>
+          <div class="svc-inc-label">Perfect for</div>
+          <ul class="svc-inc-list">
+            <li>Launches &amp; brand activations</li>
+            <li>Experiences &amp; pop-ups</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-inner">
+        <div class="svc-left">
+          <div>
+            <div class="svc-num">05</div>
+            <h3 class="svc-title"><span class="sc">Drone</span> <span class="bk">Content</span></h3>
+          </div>
+          <div class="svc-tag"><span class="svc-dot"></span>Aerial Visuals</div>
+        </div>
+        <div class="svc-right">
+          <p class="svc-body">Aerial visuals that add perspective and depth. Used thoughtfully to complement the story — drone content is ideal for events, real estate, construction businesses, brand campaigns, and location-based projects.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="tk tk-white"><div class="tk-track">    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+    <img src="https://funilpro.site/wp-content/uploads/2026/03/02-CARROSSEL-01.png" alt="">
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     ROOTED IN INTENTION + FOUNDERS
+═══════════════════════════════════════════ -->
+<section class="rit-section" id="ritSection">
+
+  <!-- ROOTED IN INTENTION -->
+  <div class="rit-grid">
+    <div class="rit-image-wrap">
+      <img src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-2464-scaled.jpg" alt="Cerri Media — Rooted in intention">
+    </div>
+    <div class="rit-copy">
+      <span class="rit-eyebrow">About our work</span>
+      <h2 class="rit-title"><span class="sc">Rooted in</span><br>intention</h2>
+      <div class="rit-divider"></div>
+      <div class="rit-body">
+        <p>Our work is rooted in intention. We focus on details, direction, and visuals that feel clean, natural, and aligned. We believe great content doesn't need to be loud — it needs to be clear.</p>
+        <p>We collaborate closely, move fast, and adapt easily. Whether it's ongoing content, a campaign, or an event, we approach every project with the same mindset: make it make sense, visually and creatively.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIVISÓRIA -->
+  <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 80px 0;"></div>
+
+  <!-- FOUNDERS -->
+  <div class="rit-founders-grid">
+    <img
+      class="rit-founders-img"
+      src="https://funilpro.site/wp-content/uploads/2026/06/Foto-de-IA-usar-ela-pequena.jpg"
+      alt="Luiza and Breno Cerri — Founders"
+    >
+    <div class="rit-founders-copy">
+      <span class="rit-eyebrow">About the Founders</span>
+      <h2 class="rit-title">
+        Built through<br>
+        <span class="sc">creative</span> + execution
+      </h2>
+      <div class="rit-divider"></div>
+      <div class="rit-body">
+        <p>Cerri Media was founded in 2023 by Luiza and Breno Cerri, Brazilian-American creatives with different backgrounds and a shared eye for visual storytelling.</p>
+        <p>Coming from different professional backgrounds, we both always shared a strong creative instinct. Breno was naturally drawn to photography and filmmaking, while Luiza focused on videography, direction, and brand storytelling. Over time, those perspectives naturally evolved into a shared creative vision that became the foundation of Cerri Media.</p>
+        <p>Our styles align, but also complement each other. Clients often connect with our work because of the visuals, the rhythm, the details, and the feeling behind each project, and stay because of how intentional and collaborative the process feels.</p>
+        <p>As the company grew, we built a team that reflects that same approach. Every creative we work with is carefully selected to align with our standards, aesthetic, and way of creating.</p>
+        <p>We stay hands-on from start to finish, making sure every project feels cohesive, thoughtful, and aligned with the brand's vision.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TICKER TEXT — CONTENT creation
+═══════════════════════════════════════════ -->
+<div class="ticker-text-wrap">
+  <div class="ticker-text-track">
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+    <span class="ticker-text-item"><span class="word-content">CONTENT</span><span class="word-creation">creation</span></span>
+    <span class="ticker-separator"></span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     HERO 3 PANELS
+═══════════════════════════════════════════ -->
+<div class="hero3-wrap" id="hero3Wrap">
+  <!-- Painel 1 -->
+  <div class="hero3-panel" id="panel0">
+    <img class="slide active" src="https://funilpro.site/wp-content/uploads/2026/05/IMG_1857-scaled.jpeg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-2717-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0642-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/IMG_1888.JPG.jpeg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0915-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-2736-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-1251-scaled.jpg" alt="">
+  </div>
+  <!-- Painel 2 -->
+  <div class="hero3-panel" id="panel1">
+    <img class="slide active" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-2480.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0557-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0975-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/IMG_1861.JPG.jpeg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-2464-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0687-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-1572-scaled.jpg" alt="">
+  </div>
+  <!-- Painel 3 -->
+  <div class="hero3-panel" id="panel2">
+    <img class="slide active" src="https://funilpro.site/wp-content/uploads/2026/06/Foto-de-IA-usar-ela-pequena.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-2666-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0507-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-0691-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-3221-scaled.jpg" alt="">
+    <img class="slide" src="https://funilpro.site/wp-content/uploads/2026/05/Tezza-8391-scaled.jpg" alt="">
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+<footer id="contact" class="cm-footer">
+  <div class="cm-footer-inner">
+    <div class="cm-footer-top">
+      <div class="cm-footer-logo">
+        <img src="https://funilpro.site/wp-content/uploads/2026/03/Prancheta-4.png" alt="Cerri Media">
+      </div>
+      <div class="cm-footer-tagline">
+        Content that feels<br><em>clean, natural, aligned.</em>
+      </div>
+    </div>
+    <div class="cm-footer-mid">
+      <div>
+        <div class="cm-footer-col-label">Contact</div>
+        <div class="cm-footer-col-value">
+          <a href="mailto:Contact@cerrimedia.com">Contact@cerrimedia.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="cm-footer-col-label">Location</div>
+        <div class="cm-footer-col-value">South Florida<br>United States</div>
+      </div>
+      <div>
+        <div class="cm-footer-col-label">Social</div>
+        <div class="cm-footer-col-value">
+          <a class="cm-insta-link" href="https://www.instagram.com/cerrimediaa?igsh=bDVlbjMyanpmNTJ0&utm_source=qr" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/>
+            </svg>
+            @cerrimediaa
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="cm-footer-col-label">WhatsApp</div>
+        <div class="cm-footer-col-value">
+          <a href="https://wa.me/message/VOCVD6UA5CPYB1" target="_blank" rel="noopener">Send a message →</a>
+        </div>
+      </div>
+    </div>
+    <div class="cm-footer-bottom">
+      <span class="cm-copyright">© 2026 Cerri Media. All rights reserved. · South Florida</span>
+      <div class="cm-footer-dot"></div>
+      <span class="cm-copyright">Made with intention.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════
+     PORTFOLIO PINTEREST GALLERY
+═══════════════════════════════════════════ -->
+<div class="pgm-overlay" id="pgmOverlay">
+  <div class="pgm-header">
+    <span class="pgm-title" id="pgmTitle"></span>
+    <button class="pgm-close" id="pgmClose" aria-label="Fechar">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="pgm-grid" id="pgmGrid"></div>
+</div>
+
+<!-- Lightbox -->
+<div class="pgm-lightbox" id="pgmLightbox">
+  <button class="pgm-lb-close" id="pgmLbClose">
+    <svg viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+  <img id="pgmLbImg" src="" alt="">
+</div>
+
+<!-- ═══════════════════════════════════════════
+     GALLERY MODAL
+═══════════════════════════════════════════ -->
+<div class="gallery-modal" id="galleryModal">
+  <div class="gm-backdrop" id="gmBackdrop"></div>
+  <div class="gm-box">
+    <div class="gm-header">
+      <span class="gm-title" id="gmTitle"></span>
+      <button class="gm-close" id="gmClose" aria-label="Fechar">
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L13 13M13 1L1 13" stroke="#141414" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="gm-iframe-wrap">
+      <div class="gm-loading" id="gmLoading">Loading gallery...</div>
+      <iframe id="gmIframe" src="" title="Gallery" allowfullscreen
+        onload="document.getElementById('gmLoading').classList.add('gm-loaded')">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── GALLERY MODAL
+function openGallery(e, el) {
+  e.preventDefault();
+  var url   = el.getAttribute('data-gallery');
+  var name  = el.getAttribute('data-name');
+  var modal = document.getElementById('galleryModal');
+  var iframe= document.getElementById('gmIframe');
+  var title = document.getElementById('gmTitle');
+  var loading = document.getElementById('gmLoading');
+
+  title.textContent = name;
+  loading.classList.remove('gm-loaded');
+  iframe.src = url;
+  modal.classList.add('gm-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGallery() {
+  var modal = document.getElementById('galleryModal');
+  var iframe= document.getElementById('gmIframe');
+  modal.classList.remove('gm-open');
+  document.body.style.overflow = '';
+  setTimeout(function(){ iframe.src = ''; }, 400);
+}
+
+document.getElementById('gmClose').addEventListener('click', closeGallery);
+document.getElementById('gmBackdrop').addEventListener('click', closeGallery);
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') closeGallery();
+});
+</script>
+
+<script>
+(function() {
+  'use strict';
+  var nav        = document.getElementById('cmNav');
+  var burger     = document.getElementById('cmBurger');
+  var fullscreen = document.getElementById('cmFullscreen');
+  var closeBtn   = document.getElementById('cmFsClose');
+  var fsLinks    = fullscreen.querySelectorAll('a');
+  var isOpen     = false;
+
+  function toggle(open) {
+    isOpen = open;
+    burger.classList.toggle('cm-open', open);
+    fullscreen.classList.toggle('cm-open', open);
+    fullscreen.setAttribute('aria-hidden', String(!open));
+    burger.setAttribute('aria-expanded', String(open));
+  }
+  burger.addEventListener('click', function(e) { e.stopPropagation(); toggle(!isOpen); });
+  closeBtn.addEventListener('click', function(e) { e.stopPropagation(); toggle(false); });
+  fsLinks.forEach(function(link) { link.addEventListener('click', function() { toggle(false); }); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && isOpen) toggle(false); });
+  window.addEventListener('resize', function() { if (window.innerWidth > 1024 && isOpen) toggle(false); });
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (ticking) return;
+    requestAnimationFrame(function() { nav.classList.toggle('cm-scrolled', window.pageYOffset > 60); ticking = false; });
+    ticking = true;
+  }, { passive: true });
+})();
+
+// ── PORTFOLIO PINTEREST GALLERY
+(function(){
+  var GALLERIES = {
+    'Brand Campaign': [
+      'https://funilpro.site/wp-content/uploads/2026/06/Tezza-0687-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-2666-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-3221-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-6136-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-2494-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0573-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-3565-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/06/Tezza-4309-scaled.jpg'
+    ],
+    'Lifestyle Shoots': [
+      'https://funilpro.site/wp-content/uploads/2026/06/Tezza-4309-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-2480.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0507-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0095-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-2510-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-1572-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-6682.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-9593-scaled.jpg'
+    ],
+    'Editorial': [
+      'https://funilpro.site/wp-content/uploads/2026/06/Tezza-4021-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-8391-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0642-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-3434-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-5604-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-6820-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-9641-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-4403-scaled.jpg'
+    ],
+    'Event Coverage': [
+      'https://funilpro.site/wp-content/uploads/2026/06/IMG_7280-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/06/IMG_7285-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/06/IMG_7291-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/IMG_1857-scaled.jpeg',
+      'https://funilpro.site/wp-content/uploads/2026/05/IMG_1861.JPG.jpeg',
+      'https://funilpro.site/wp-content/uploads/2026/05/IMG_1888.JPG.jpeg',
+      'https://funilpro.site/wp-content/uploads/2026/05/IMG_1889.JPG-scaled.jpeg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-1251-scaled.jpg'
+    ],
+    'Content for your business': [
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0347-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-7987.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-8009-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-7456-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0904-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-1443-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-2383-scaled.jpg',
+      'https://funilpro.site/wp-content/uploads/2026/05/Tezza-4590-scaled.jpg'
+    ]
+  };
+
+  var overlay  = document.getElementById('pgmOverlay');
+  var grid     = document.getElementById('pgmGrid');
+  var title    = document.getElementById('pgmTitle');
+  var closeBtn = document.getElementById('pgmClose');
+  var lb       = document.getElementById('pgmLightbox');
+  var lbImg    = document.getElementById('pgmLbImg');
+  var lbClose  = document.getElementById('pgmLbClose');
+
+  // Tornar os masonry-items clicáveis
+  window.openPortfolioGallery = function(name) {
+    var imgs = GALLERIES[name];
+    if (!imgs) return;
+    title.textContent = name;
+    grid.innerHTML = '';
+    imgs.forEach(function(src, i) {
+      var item = document.createElement('div');
+      item.className = 'pgm-item';
+      item.style.transitionDelay = (i * 0.07) + 's';
+      var img = document.createElement('img');
+      img.src = src; img.alt = name;
+      img.addEventListener('click', function(){ openLightbox(src); });
+      item.appendChild(img);
+      grid.appendChild(item);
+      setTimeout(function(){ item.classList.add('pgm-visible'); }, 50 + i * 70);
+    });
+    overlay.classList.add('pgm-open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  function openLightbox(src) {
+    lbImg.src = src;
+    lb.classList.add('pgm-lb-open');
+  }
+  function closeLightbox() {
+    lb.classList.remove('pgm-lb-open');
+    setTimeout(function(){ lbImg.src = ''; }, 300);
+  }
+  function closeOverlay() {
+    overlay.classList.remove('pgm-open');
+    document.body.style.overflow = '';
+    setTimeout(function(){ grid.innerHTML = ''; }, 400);
+  }
+
+  closeBtn.addEventListener('click', closeOverlay);
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', function(e){ if(e.target===lb) closeLightbox(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key==='Escape') { if(lb.classList.contains('pgm-lb-open')) closeLightbox(); else closeOverlay(); }
+  });
+})();
+
+// ── SUB-CARDS SCROLL ANIMATION
+(function(){
+  var cards = document.querySelectorAll('.sub-card');
+  if (!cards.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e, i){
+      if (e.isIntersecting){
+        setTimeout(function(){ e.target.classList.add('in-view'); }, i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  cards.forEach(function(c){ io.observe(c); });
+})();
+
+// ── SCROLL FADE (About section)
+(function() {
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade').forEach(function(el) { io.observe(el); });
+})();
+
+// ── SERVICES CARDS SCALE ON SCROLL
+(function() {
+  var cards = document.querySelectorAll('.svc-card');
+  function onScroll() {
+    cards.forEach(function(card) {
+      var rect = card.getBoundingClientRect();
+      var stickyTop = parseInt(getComputedStyle(card).top);
+      var dist = rect.top - stickyTop;
+      if (dist <= 0) {
+        var p = Math.min(Math.abs(dist) / card.offsetHeight, 1);
+        card.style.transform = 'scale(' + (1 - p * 0.03).toFixed(4) + ')';
+        card.style.filter    = 'brightness(' + (1 - p * 0.06).toFixed(4) + ')';
+      } else {
+        card.style.transform = 'scale(1)';
+        card.style.filter    = 'brightness(1)';
+      }
+    });
+  }
+  var t = false;
+  window.addEventListener('scroll', function() {
+    if (!t) { requestAnimationFrame(function() { onScroll(); t = false; }); t = true; }
+  }, { passive: true });
+  onScroll();
+})();
+
+// ── MAGNETIC IMAGE TRAIL (harmônico, ordem crescente)
+(function(){
+  var zone = document.querySelector('.hero-cursor-zone');
+  if (!zone) return;
+
+  var IMGS = [
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-2666-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0507-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0557-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0642-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0687-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0691-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0915-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-0975-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-3221-scaled.jpg',
+    'https://funilpro.site/wp-content/uploads/2026/05/Tezza-1572-scaled.jpg',
+  ];
+
+  // Enquadramentos variados: portrait, landscape, quadrado — ordem crescente de tamanho
+  var SIZES = [
+    {w:120, h:160},   // portrait pequeno
+    {w:190, h:120},   // landscape
+    {w:135, h:180},   // portrait
+    {w:160, h:160},   // quadrado
+    {w:150, h:200},   // portrait médio
+    {w:220, h:140},   // landscape médio
+    {w:165, h:220},   // portrait
+    {w:180, h:180},   // quadrado médio
+    {w:175, h:235},   // portrait grande
+    {w:250, h:160},   // landscape grande
+  ];
+
+  var POOL   = IMGS.length;
+  var DIST   = 130;   // px entre disparos — mais espaçado
+  var pool   = [];
+  var imgIdx = 0;
+  var lastX  = -9999, lastY = -9999;
+  var inside = false;
+  var looping = false;
+
+  for (var i = 0; i < POOL; i++) {
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;top:0;left:0;pointer-events:none;z-index:9999;overflow:hidden;opacity:0;box-shadow:0 8px 28px rgba(0,0,0,0.28);';
+    var img = document.createElement('img');
+    img.style.cssText = 'display:block;width:100%;height:100%;object-fit:cover;';
+    d.appendChild(img);
+    document.body.appendChild(d);
+    pool.push({ el: d, img: img, active: false, x: 0, y: 0, vy: 0, life: 0, rot: 0 });
+  }
+
+  function fire(cx, cy, dx, dy) {
+    var sIdx = imgIdx % POOL;
+    var s    = pool[sIdx];
+    imgIdx++;
+
+    var sz  = SIZES[sIdx];
+    // Rotação mínima: só leve tilt baseado na direção
+    var ang = Math.atan2(dy, dx) * (180 / Math.PI);
+    var rot = ang * 0.04 + (sIdx % 2 === 0 ? 1.5 : -1.5);
+
+    // Offset aleatório leve para não ficar sempre centrado no cursor
+    var ox = (Math.random() - 0.5) * 40;
+    var oy = (Math.random() - 0.5) * 24;
+
+    s.img.src = IMGS[sIdx];
+    s.el.style.width  = sz.w + 'px';
+    s.el.style.height = sz.h + 'px';
+    s.el.style.transition = 'none';
+    s.el.style.transform  = 'translate(' + (cx - sz.w/2 + ox).toFixed(0) + 'px,' + (cy - sz.h/2 + oy).toFixed(0) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(0.82)';
+    s.el.style.opacity    = '0';
+
+    s.x    = cx - sz.w/2 + ox;
+    s.y    = cy - sz.h/2 + oy;
+    s.rot  = rot;
+    s.vy   = -0.25;
+    s.life = 1.0;
+    s.active = true;
+
+    requestAnimationFrame(function(){
+      s.el.style.transition = 'transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease';
+      s.el.style.transform  = 'translate(' + s.x.toFixed(0) + 'px,' + s.y.toFixed(0) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(1)';
+      s.el.style.opacity    = '1';
+    });
+
+    if (!looping) { looping = true; requestAnimationFrame(loop); }
+  }
+
+  function loop() {
+    var any = false;
+    for (var i = 0; i < POOL; i++) {
+      var s = pool[i];
+      if (!s.active) continue;
+      any = true;
+
+      s.life -= 0.016;  // sumir mais rápido
+      if (s.life <= 0) {
+        s.active = false;
+        s.el.style.transition = 'opacity 0.3s ease';
+        s.el.style.opacity = '0';
+        continue;
+      }
+
+      // Drift suavíssimo para cima
+      s.vy -= 0.008;
+      s.y  += s.vy;
+
+      // Nítido até o fim — só cai no final
+      var alpha = s.life > 0.15 ? 1 : (s.life / 0.15);
+      s.el.style.transition = 'opacity 0.15s ease';
+      s.el.style.transform  = 'translate(' + s.x.toFixed(1) + 'px,' + s.y.toFixed(1) + 'px) rotate(' + s.rot.toFixed(2) + 'deg) scale(1)';
+      s.el.style.opacity    = alpha.toFixed(2);
+    }
+    if (any) requestAnimationFrame(loop);
+    else looping = false;
+  }
+
+  document.addEventListener('mousemove', function(e) {
+    var r = zone.getBoundingClientRect();
+    var inZ = e.clientX >= r.left && e.clientX <= r.right &&
+              e.clientY >= r.top  && e.clientY <= r.bottom;
+    if (!inZ) { inside = false; return; }
+    inside = true;
+
+    var dx   = e.clientX - lastX;
+    var dy   = e.clientY - lastY;
+    var dist = Math.sqrt(dx*dx + dy*dy);
+
+    if (dist >= DIST) {
+      fire(e.clientX, e.clientY, dx, dy);
+      lastX = e.clientX;
+      lastY = e.clientY;
+    }
+  });
+})();
+
+
+
+
+(function() {
+  var section = document.getElementById('ritSection');
+  if (!section) return;
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { section.classList.add('rit-visible'); io.unobserve(section); }
+    });
+  }, { threshold: 0.15 });
+  io.observe(section);
+})();
+
+// ── HERO3 SLIDESHOW — crossfade lento, cada painel em offset diferente
+(function() {
+  var panels = [
+    document.getElementById('panel0'),
+    document.getElementById('panel1'),
+    document.getElementById('panel2'),
+  ];
+  if (!panels[0]) return;
+
+  var INTERVAL = 3800;
+  var OFFSETS  = [0, 1400, 2700];
+
+  panels.forEach(function(panel, pi) {
+    if (!panel) return;
+    var slides  = panel.querySelectorAll('.slide');
+    var current = 0;
+
+    function next() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    setTimeout(function() {
+      setInterval(next, INTERVAL);
+    }, OFFSETS[pi]);
+  });
+})();
+</script>
+
+</body>
+</html>
